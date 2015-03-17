@@ -78,12 +78,19 @@ var populateGrid = function(grid) {
 
 }
 
+// Check for a winner.
+var checkWon = function(cellId, grid) {
+
+}
+
 $(function() {
     var grid = createGrid(10);
     populateGrid(grid);
     renderGrid(grid);
-
+    
     $('.js-grid-container').on('click', '.js-cell', function() {
-       updateCell($(this).attr('data-id'), grid);
+        var cellId = $(this).attr('data-id');
+        updateCell(cellId, grid);
+        checkWon(cellId, grid);
     });
 });
