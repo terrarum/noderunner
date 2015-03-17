@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    text-align: center;
+}
+
+.grid {
+    border: 1px solid black;
+    display: inline-block;
+    -webkit-user-select: none;
+}
+
+.grid__row {
+    overflow: hidden;
+    -webkit-user-select: none;
+}
+
+.grid__row__cell {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    float: left;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.grid__row__cell:hover {
+    background-color: #f9f9f9;
+}
+
+
+
+/**
+    Style tweaks.
+**/
+.grid__row__cell:last-child {
+    border-right: none;
+}
+
+.grid__row:last-child > .grid__row__cell {
+    border-bottom: none;
+}
