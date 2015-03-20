@@ -12,7 +12,7 @@ Steps:
 * Player places a marker on the grid.
 * Check the cells around the marker.
 * If an adjacent cell has the same marker in it:
-** Check the next cell in the same direction.
-** When the end is reached, return to the marker and check the opposite direction.
-** When the end is reached, the found cells are the total length of the consecutive markers.
-** If found == N, winner.
+    * Check the next cell in the same direction.
+    * When the end is reached, return to the marker and check the opposite direction.
+    * When the end is reached, the found cells are the total length of the consecutive markers.
+    * If found == N, winner.
