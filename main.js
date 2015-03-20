@@ -87,10 +87,13 @@ $(function() {
     var grid = createGrid(10);
     populateGrid(grid);
     renderGrid(grid);
-    
+
     $('.js-grid-container').on('click', '.js-cell', function() {
         var cellId = $(this).attr('data-id');
         updateCell(cellId, grid);
         checkWon(cellId, grid);
     });
 });
+
+// Unit tests.
+// Populate grid, 'click' on a cell, compare algorithm result to expected result.
