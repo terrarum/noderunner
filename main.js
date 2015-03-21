@@ -107,6 +107,17 @@ $(function() {
     renderGrid(grid);
     populateGrid(grid);
 
+    // Add grids to dropdown.
+    $.each(window.boards, function(i, el) {
+       $('.js-grid-select').append('<option value="' + i + '">' + el.name + '</option>')
+    });
+
+    // Listen for new grid being selected.
+    $('.js-grid-select').on('change', function() {
+        populateGrid(grid, $(this).val());
+    });
+
+    // Listen for cell clicks.
     $('.js-grid-container').on('click', '.js-cell', function() {
         var cellId = $(this).attr('data-id');
         updateCell(cellId, grid, 1);
