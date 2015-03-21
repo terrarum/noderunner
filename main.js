@@ -1,12 +1,12 @@
 var WIN_LENGTH = 4,
     NW = 0,
-    N = 1,
+     N = 1,
     NE = 2,
-    E = 3,
+     E = 3,
     SE = 4,
-    S = 5,
+     S = 5,
     SW = 6,
-    W = 7;
+     W = 7;
 
 // Cell Model.
 var cellModel = function(id, x, y) {

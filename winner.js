@@ -9,20 +9,28 @@ var checkWon = function(cellId, grid) {
     var cell = getCellById(grid, cellId);
     console.log("Cell:", cell);
 
-    // Get north west cell.
-    var cellNW = getCellInDir(grid, cell, NW);
-    console.log("Cell NW:", cellNW);
+    // For the current cell, check the cells to the West, North West, North
+    // and North East. The algorithm will check the opposite directions as well.
+    // The chosen directions are entirely arbitrary.
+    var baseDirs = [
+        W,
+        NW,
+        N,
+        NE
+    ];
 
-    // Check the cells around the current cell.
+    // For each selected direction:
+    $.each(baseDirs, function(i, dir) {
+        // Check cell in given direction.
 
+        // If next cell is valid then check next cell
+        // increment chainLength
+        // repeat
 
-    // If any contain the same marker, store them and their direction.
-
-    // Follow that direction and count the new total for each valid marker found.
-
-    // If an invalid marker is found, go in the opposite direction.
-
-    // If the total is equal to or greater than the winning amount, an winner has been found.
+        // if next cell is invalid
+        // check opposite direction from origin
+        // don't keep checking opposite forever
+    });
 
 };
 
