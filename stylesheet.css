@@ -104,6 +104,11 @@ html, body {
     margin: 21px 0 15px 0;
 }
 
-.form-group {
-    margin: 0;
+.form-group-last {
+    margin: 0 !important;
+}
+
+.btn:focus {
+    outline: none;
+    background-color: #ffffff;
 }

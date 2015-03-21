@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Noderunner</title>
     <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="stylesheet.css"/>
 </head>
 <body>
@@ -23,6 +24,7 @@
                     <label for="grid-select">Select Board</label>
                     <select name="grid-select" class="form-control grid-select js-grid-select" id="grid-select"></select>
                 </div>
+                <button class="btn btn-default js-refresh">Reset&nbsp;&nbsp;<i class="fa fa-refresh"></i></button>
             </div>
         </div>
 
@@ -36,13 +38,14 @@
 
         <div class="grid-menu-outer grid-menu-right">
             <div class="grid-menu">
-                Grid Menu Right
+                Win length: <span class="js-win-length"></span>
             </div>
         </div>
     </div>
 
     <script src="jquery.min.js"></script>
     <script src="boards.js"></script>
+    <script src="winner.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
