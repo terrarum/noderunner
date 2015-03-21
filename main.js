@@ -9,7 +9,7 @@ var cellModel = function(id, x, y) {
 };
 
 // Create a two-dimensional grid.
-var createGrid = function(gridSize) {
+var createGrid = function(gridSize, data) {
     var cellId = 0;
     var grid = [];
 
@@ -53,7 +53,6 @@ var getCellById = function(grid, id) {
 var getCellElementById = function(id) {
     var $cellEl;
     $('.js-cell').each(function() {
-        console.log($(this).attr('data-id') == id)
         if ($(this).attr('data-id') == id) {
             $cellEl = $(this);
             return false;
@@ -63,19 +62,39 @@ var getCellElementById = function(id) {
 }
 
 // Update a specific cell.
-var updateCell = function(id, grid) {
+var updateCell = function(id, grid, value) {
     // Update cell model.
-    var cell = getCellById(id);
-    cell.value = "X";
+    var cell = getCellById(grid, id);
+    var cellValue;
+    switch (value) {
+        case 0:
+            cellValue = "";
+            break;
+        case 1:
+            cellValue = "X";
+            break;
+        case 2:
+            cellValue = "O";
+            break
+        default:
+            cellValue = "";
+    }
+    cell.value = cellValue;
 
     // Render updated cell.
     var $cellEl = getCellElementById(id);
-    $cellEl.html("X");
+    $cellEl.html(cellValue);
 }
 
 // Add some content to the grid.
-var populateGrid = function(grid) {
-
+var populateGrid = function(grid, boardId) {
+    boardId = boardId == undefined ? 0 : boardId;
+    gridContent = window.boards[boardId].board;
+    for (var row = 0; row < grid.length; row++) {
+        for (var col = 0; col < grid[row].length; col++) {
+            updateCell(grid[row][col].id, grid, gridContent[row][col])
+        }
+    }
 }
 
 // Check for a winner.
@@ -84,13 +103,13 @@ var checkWon = function(cellId, grid) {
 }
 
 $(function() {
-    var grid = createGrid(10);
-    populateGrid(grid);
+    var grid = createGrid(8);
     renderGrid(grid);
+    populateGrid(grid);
 
     $('.js-grid-container').on('click', '.js-cell', function() {
         var cellId = $(this).attr('data-id');
-        updateCell(cellId, grid);
+        updateCell(cellId, grid, 1);
         checkWon(cellId, grid);
     });
 });
