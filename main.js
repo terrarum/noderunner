@@ -49,6 +49,24 @@ var renderGrid = function(grid) {
     }
 };
 
+// Give the cell a highlight.
+var highlightCell = function(cell, type) {
+    var cellEl = getCellElementById(cell.id);
+    var colour;
+    switch (type) {
+        case "valid":
+            colour = '#00ff99';
+            break;
+        case "short":
+            colour = '#999999';
+            break;
+    }
+
+    $(cellEl).css({
+        'background-color': colour
+    })
+}
+
 // Get a cell by its ID.
 var getCellById = function(grid, id) {
     for (var row = 0; row < grid.length; row++) {
@@ -70,6 +88,7 @@ var getCellByPos = function(grid, x, y) {
     }
 };
 
+// Returns the opposite direction to a given direction.
 var getOppositeDirection = function(dir) {
     var oppositeDir = null;
     switch(dir) {

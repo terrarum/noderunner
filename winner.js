@@ -21,17 +21,35 @@ var checkWon = function(cellId, grid) {
         chainLength = 1;
         // Check cell in given direction.
         checkDirection(baseCell, grid, dir);
+
         // Check the opposite direction.
         checkDirection(baseCell, grid, getOppositeDirection(dir));
     });
+
+    playback();
 };
 
+// Playback the checked cells.
+var waitTime = 500;
+var playback = function() {
+    if (history.length > 0) {
+        $.each(checkHistory, function(i, cell) {
+            _.delay(function() {
+                highlightCell(cell, 'valid');
+            }, waitTime * i);
+        })
+    }
+};
+
+var checkHistory = [];
 var checkDirection = function(cell, grid, dir) {
     // Get a cell in a direction.
     var nextCell = getCellInDir(grid, cell, dir);
 
     // If the new cell is valid and has the same value as the baseCell.
     if (isCellValid(nextCell, baseCell.value)) {
+        console.log("Next Cell:", nextCell);
+        checkHistory.push(nextCell);
         // Increase chain length.
         chainLength++;
         console.log("Chain Length:", chainLength);
