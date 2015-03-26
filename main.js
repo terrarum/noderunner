@@ -62,8 +62,46 @@ var getCellById = function(grid, id) {
 
 // Get a cell by its position.
 var getCellByPos = function(grid, x, y) {
-    return grid[y][x];
+    if (grid[y] !== void(0)) {
+        return grid[y][x];
+    }
+    else {
+        return void(0);
+    }
 };
+
+var getOppositeDirection = function(dir) {
+    var oppositeDir = null;
+    switch(dir) {
+        case N:
+            oppositeDir = S;
+            break;
+        case NE:
+            oppositeDir = SW;
+            break;
+        case E:
+            oppositeDir = W;
+            break;
+        case SE:
+            oppositeDir = NW;
+            break;
+        case S:
+            oppositeDir = N;
+            break;
+        case SW:
+            oppositeDir = NE;
+            break;
+        case W:
+            oppositeDir = E;
+            break;
+        case NW:
+            oppositeDir = SE;
+            break;
+        default:
+            console.log("You did not supply a valid direction, so you will get null.")
+    }
+    return oppositeDir;
+}
 
 // Get the cell in the given direction from the given cell.
 var getCellInDir = function(grid, cell, dir) {
