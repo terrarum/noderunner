@@ -16,3 +16,6 @@ Steps:
     * When the end is reached, return to the marker and check the opposite direction.
     * When the end is reached, the found cells are the total length of the consecutive markers.
     * If found == N, winner.
+    
+    
+Currently, the algorithm will stop checking nodes once a winner has been found. This is not necessarily the best way of operating; you might want to highlight multiple winning lines for example. I just did it because I wanted to make sure I could do it correctly.
