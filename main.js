@@ -51,20 +51,10 @@ var renderGrid = function(grid) {
 
 // Give the cell a highlight.
 var highlightCell = function(cell, type) {
-    var cellEl = getCellElementById(cell.id);
-    var colour;
-    switch (type) {
-        case "valid":
-            colour = '#00ff99';
-            break;
-        case "short":
-            colour = '#999999';
-            break;
+    if (cell !== void(0)) {
+        var cellEl = getCellElementById(cell.id);
+        $(cellEl).addClass('is-' + type);
     }
-
-    $(cellEl).css({
-        'background-color': colour
-    })
 }
 
 // Get a cell by its ID.

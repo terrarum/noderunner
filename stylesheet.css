@@ -84,6 +84,24 @@ html, body {
     background-color: #f9f9f9;
 }
 
+.grid__row__cell.is-valid {
+    background-color: #00ff99;
+}
+
+.grid__row__cell.is-invalid {
+    background-color: #bbbbbb;
+}
+.grid__row__cell.is-invalid.is-invalid-end {
+    background-color: #dddddd;
+}
+
+.fader {
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
 /**
     Style tweaks.
 **/
